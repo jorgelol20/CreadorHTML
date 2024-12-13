@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import com.aspose.*;
 public class Main {
     private JTextField h1Texto;
     private JComboBox colorH1;
