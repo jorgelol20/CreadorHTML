@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SetColor {
+    //Function for set the color of the text (H1, H2 and Body)
     public static void setColor(JComboBox colorOption, JTextArea textArea) {
         if (colorOption.getSelectedIndex() == 0) {
             textArea.setForeground(Color.black);

@@ -1,6 +1,7 @@
 import javax.swing.*;
 
 public class CreateFrame {
+    //Function for create the JFrame
     public static JFrame createFrame(String title, JPanel panel, int width, int height) {
         JFrame frame = new JFrame();
         frame.setTitle(title);
