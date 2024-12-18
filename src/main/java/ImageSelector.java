@@ -22,7 +22,7 @@ public class ImageSelector {
 
     //Function for check if the image have a correct format
     private static boolean checkImageType(JFileChooser chooser) {
-        //Array whit the correct formats
+        //Array with the correct formats
         String[] imageTypes = {"jpg", "jpeg", "png"};
         String errorText = MessageFormat.format("Solo se permite una imagen {0}, {1} o {2}", imageTypes[0], imageTypes[1], imageTypes[2]);
         boolean imageTypeFound = false;
