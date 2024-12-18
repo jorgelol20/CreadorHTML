@@ -16,6 +16,8 @@ public class Main {
     private JLabel imageText;
     private JTextArea textBody;
     private JTextArea textH1;
+    private JButton createButton;
+
     //Start point of the APP
     public static void main(String[] args) {
         new Main();
@@ -71,6 +73,13 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 SetColor.setColor(optionColorBody,textBody);
+            }
+        });
+        //Create button listener
+        createButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
             }
         });
     }
