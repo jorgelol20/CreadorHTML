@@ -21,11 +21,11 @@ public class FileCreator {
 
     }
 
-    //Creation of the file. First it will be deleted if exist to don't have anyproblem.
+    //Creation of the file. First it will be deleted if exist to don't have any problem.
     private static void createFile(JFileChooser chooser, JComboBox optionColorH2, JComboBox optionColorH1, JComboBox optionColorBody, JCheckBox checkH2, JTextArea textH1, JTextArea textH2, JTextArea textBody, JLabel imageText) {
         File htmlFile = new File(chooser.getSelectedFile() + "\\index.txt");
         try {
-            if (new File(htmlFile.getAbsoluteFile() + ".html").delete()) ;
+            if (new File(String.valueOf(htmlFile.getAbsoluteFile()).replace(".txt", ".html")).delete()) ;
             if (htmlFile.delete()) ;
             if (htmlFile.createNewFile()) {
                 writeFile(htmlFile, chooser, optionColorH2, optionColorH1, optionColorBody, checkH2, textH1, textH2, textBody, imageText);
@@ -44,7 +44,7 @@ public class FileCreator {
                         "<html lang=\"es-ES\">\n" +
                         "  <head>\n" +
                         "    <meta charset=\"UTF-8\" />\n" +
-                        "    <title>Document</title>\n" +
+                        "    <title>By Jorge Colomer Albertos</title>\n" +
                         "    <style>\n" +
                         "      h1 {\n" +
                         "          color: %s;\n" +
@@ -96,6 +96,10 @@ public class FileCreator {
         String textP = textBody.getText().replace("\n", "<br>");
         String imgSource = imageText.getText();
         String alternateImgText = imageText.getText();
+        if (imgSource.contains("seleccionada")){
+            imgSource ="";
+            alternateImgText = "";
+        }
         String htmlContent = String.format(basicContent, colorH1, colorH2, displayH2, colorP, textOfH1, textOfH2, textP, imgSource, alternateImgText);
         //Write on it
         try (FileWriter writeFile = new FileWriter(htmlFile.getAbsoluteFile())) {
@@ -107,7 +111,7 @@ public class FileCreator {
             }
         }
         //Rename the file
-        if (htmlFile.renameTo(new File(htmlFile.getAbsoluteFile() + ".html"))) {
+        if (htmlFile.renameTo(new File(String.valueOf(htmlFile.getAbsoluteFile()).replace(".txt", ".html")))) {
             JOptionPane.showMessageDialog(null, "El archivo se ha creado correctamente");
         } else {
             JOptionPane.showMessageDialog(null, "No se ha podido crear el archivo");
