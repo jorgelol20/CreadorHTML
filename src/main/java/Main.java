@@ -6,16 +6,16 @@ public class Main {
     //Declare variables
     public JPanel mainPanel;
     public JPanel containerPanel;
-    private JCheckBox checkH2;
-    private JComboBox optionColorH1;
-    private JTextArea textH2;
-    private JComboBox optionColorH2;
-    private JComboBox optionColorBody;
+    public JCheckBox checkH2;
+    public JComboBox optionColorH1;
+    public JTextArea textH2;
+    public JComboBox optionColorH2;
+    public JComboBox optionColorBody;
     private JButton selectimageButton;
-    private JLabel imagePreview;
+    public JLabel imagePreview;
     private JLabel imageText;
-    private JTextArea textBody;
-    private JTextArea textH1;
+    public JTextArea textBody;
+    public JTextArea textH1;
     private JButton createButton;
 
     //Start point of the APP
@@ -24,6 +24,7 @@ public class Main {
     }
     //Main function of the APP
     public Main() {
+        imageText.setVisible(false);
         //Bounds of the frame and title
         int widthFrame = 600;
         int heightFrame = 600;
@@ -79,7 +80,7 @@ public class Main {
         createButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                FileCreator.fileCreator(optionColorH2,optionColorH1,optionColorBody,checkH2,textH1,textH2,textBody,imageText);
             }
         });
     }

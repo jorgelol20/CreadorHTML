@@ -3,16 +3,15 @@ import java.text.MessageFormat;
 
 public class ImageSelector {
     public static Icon imageSelector(JLabel imagePreview, JLabel imageText) {
-        //Use of the JFileChoose for get the image what the user want to use
-        JFileChooser chooser = new JFileChooser();
-        chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        chooser.showOpenDialog(null);
+        //Use of the JFileChoose for get the directory where the user wants to save the file
+        JFileChooser directoryChooser = new JFileChooser();
+        directoryChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        directoryChooser.showOpenDialog(null);
 
-        if (checkImageType(chooser)) {
-            ImageIcon image = new ImageIcon(chooser.getSelectedFile().getAbsolutePath());
+        if (checkImageType(directoryChooser)) {
+            ImageIcon image = new ImageIcon(directoryChooser.getSelectedFile().getAbsolutePath());
             //Separe the string for "/" to get the name of the file and print it on the JLabel imageText
-            String[] splitURL = chooser.getSelectedFile().getAbsolutePath().split("\\\\");
-            imageText.setText(splitURL[splitURL.length - 1]);
+            imageText.setText(directoryChooser.getSelectedFile().getAbsolutePath());
             //Return the image like ImageIcon
             return new ImageIcon(image.getImage().getScaledInstance(imagePreview.getWidth(), imagePreview.getHeight(), 1));
         } else {
